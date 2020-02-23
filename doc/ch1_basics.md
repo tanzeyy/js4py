@@ -759,3 +759,27 @@ myDict['no_key'] || 'default'
 ```
 
 如果`'no_key'`不存在，那么`myDict['no_key']`就会返回`undefined`，那么上述表达式的值就会变为`'default'`。
+
+在Python中，如果我们要更新一个对象的多个属性，我们可以直接使用`update`：
+```python
+obj = {"x": 2, "y": 4}
+obj.update({"x": 3, "z": 5})
+
+print(obj) # {'x': 3, 'y': 4, 'z': 5}
+```
+
+而在JavaScript中，我们可以使用`Object.defineProperties`，它本质上定义了`obj`对象上`props`的可枚举属性相对应的所有属性。
+```javascript
+var obj = {};
+Object.defineProperties(obj, {
+  'property1': {
+    value: true,
+    writable: true
+  },
+  'property2': {
+    value: 'Hello',
+    writable: false
+  }
+  // etc. etc.
+});
+```

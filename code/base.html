@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Stict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-
+strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<html>
+
+<head>
+    <script src="http://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+    <h1>Hello World</h1>
+    <button>Push Me Pull You</button>
+    <div id="test">
+        <ol id="test-list">
+            <li class="lang">Scheme</li>
+            <li class="lang">JavaScript</li>
+            <li class="lang">Python</li>
+            <li class="lang">Ruby</li>
+            <li class="lang">Haskell</li>
+        </ol>
+    </div>
+    <input type="text" id="email" name="email">
+    <label><input type="radio" name="weekday" id="monday" value="1"> Monday</label>
+    <label><input type="radio" name="weekday" id="tuesday" value="2"> Tuesday</label>
+    <input type="date" value="2019-07-01">
+    <input type="datetime-local" value="2015-07-01T02:03:04">
+    <input type="color" value="#ff0000">
+    <form id="test-register" action="#" target="_blank" onsubmit="return checkRegisterForm()">
+        <p id="test-error" style="color:red"></p>
+        <p>
+            用户名: <input type="text" id="username" name="username">
+        </p>
+        <p>
+            口令: <input type="password" id="password" name="password">
+        </p>
+        <p>
+            重复口令: <input type="password" id="password-2">
+        </p>
+        <p>
+            <button type="submit">提交</button> <button type="reset">重置</button>
+        </p>
+    </form>
+    <div id="test-jquery">
+        <p id="para-1" class="color-red">JavaScript</p>
+        <p id="para-2" class="color-green">Haskell</p>
+        <p class="color-red color-green">Erlang</p>
+        <p name="name" class="color-black">Python</p>
+        <form class="test-form" target="_blank" action="#0" onsubmit="return false;">
+            <legend>注册新用户</legend>
+            <fieldset>
+                <p><label>名字: <input name="name"></label></p>
+                <p><label>邮件: <input name="email"></label></p>
+                <p><label>口令: <input name="password" type="password"></label></p>
+                <p><button type="submit">注册</button></p>
+            </fieldset>
+        </form>
+    </div>
+
+    <form id="test-form" action="#0" onsubmit="return false;">
+        <p><label>Name: <input name="name"></label></p>
+        <p><label>Email: <input name="email"></label></p>
+        <p><label>Password: <input name="password" type="password"></label></p>
+        <p>Gender: <label><input name="gender" type="radio" value="m" checked> Male</label> <label><input name="gender"
+                    type="radio" value="f"> Female</label></p>
+        <p><label>City: <select name="city">
+                    <option value="BJ" selected>Beijing</option>
+                    <option value="SH">Shanghai</option>
+                    <option value="CD">Chengdu</option>
+                    <option value="XM">Xiamen</option>
+                </select></label></p>
+        <p><button type="submit">Submit</button></p>
+    </form>
+
+    <!-- HTML结构 -->
+    <form id="test-form-2" action="test">
+        <legend>请选择想要学习的编程语言：</legend>
+        <fieldset>
+            <p><label class="selectAll"><input type="checkbox"> <span class="selectAll">全选</span><span
+                        class="deselectAll">全不选</span></label> <a href="#0" class="invertSelect">反选</a></p>
+            <p><label><input type="checkbox" name="lang" value="javascript"> JavaScript</label></p>
+            <p><label><input type="checkbox" name="lang" value="python"> Python</label></p>
+            <p><label><input type="checkbox" name="lang" value="ruby"> Ruby</label></p>
+            <p><label><input type="checkbox" name="lang" value="haskell"> Haskell</label></p>
+            <p><label><input type="checkbox" name="lang" value="scheme"> Scheme</label></p>
+            <p><button type="submit">Submit</button></p>
+        </fieldset>
+    </form>
+
+    <script>
+        function checkRegisterForm() {
+            let alphabeta = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm1234567890",
+                username = document.getElementById('username'),
+                password = document.getElementById('password'),
+                password_2 = document.getElementById('password-2');
+            if (!(username.value.length >= 3 && username.value.length <= 10)) {
+                return false;
+            } else {
+                for (let c of username.value) {
+                    if (!alphabeta.includes(c)) {
+                        return false;
+                    }
+                }
+            }
+            if (!(password.value.length >= 6 && password.value.length <= 20) || password.value != password_2.value) {
+                return false;
+            }
+            return true;
+        }
+
+        function checkForm() {
+            var input_pwd = document.getElementById('input-password');
+            var md5_pwd = document.getElementById('md5-password');
+            // 把用户输入的明文变为MD5:
+            md5_pwd.value = toMD5(input_pwd.value);
+            // 继续下一步:
+            return true;
+        }
+
+        function doSubmitForm() {
+            var form = document.getElementById('test-form');
+            // 可以在此修改form的input...
+            // 提交form:
+            form.submit();
+        }
+
+        function foo() {
+            alert("Hello World");
+        }
+
+        var
+            form = $('#test-form-2'),
+            langs = form.find('[name=lang]'),
+            selectAll = form.find('label.selectAll :checkbox'),
+            selectAllLabel = form.find('label.selectAll span.selectAll'),
+            deselectAllLabel = form.find('label.selectAll span.deselectAll'),
+            invertSelect = form.find('a.invertSelect');
+
+        // 重置初始化状态:
+        form.find('*').show().off();
+        form.find(':checkbox').prop('checked', false).off();
+        deselectAllLabel.hide();
+        // 拦截form提交事件:
+        form.off().submit(function (e) {
+            e.preventDefault();
+            alert(form.serialize());
+        });
+
+        selectAll.change(function () {
+            if (selectAll.prop("checked") === true) {
+                langs.prop("checked", true);
+                selectAllLabel.hide();
+                deselectAllLabel.show();
+            } else {
+                langs.prop("checked", false);
+                selectAllLabel.show();
+                deselectAllLabel.hide();
+            }
+        });
+        invertSelect.click(function () {
+            langs.each(function() {
+                let new_state = !$(this).prop("checked");
+                $(this).prop("checked", new_state);
+            });
+            langs.change();
+        });
+        langs.change(function () {
+            if (Array.from(langs).every((lang) => {return $(lang).prop("checked") == true})) {
+                selectAllLabel.hide();
+                deselectAllLabel.show();
+            } else {
+                selectAllLabel.show();
+                deselectAllLabel.hide();
+            }
+        });
+        $btn.click(function () {
+            try {
+                var
+                    x = parseFloat($('#x').val()),
+                    y = parseFloat($('#y').val()),
+                    r;
+                if (isNaN(x) || isNaN(y)) {
+                    throw new Error('输入有误');
+                }
+                r = x + y;
+                alert('计算结果：' + r);
+            } catch (e) {
+            alert('输入有误！');
+            }
+        });
+
+    </script>
+</body>
+
+</html>
