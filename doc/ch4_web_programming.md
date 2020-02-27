@@ -36,7 +36,7 @@ for (let i of elem.children) {
 ## jQuery
 
 ### 操作DOM
-(jQuery)[https://jquery.com/]封装了常用的JavsScript操作，并提供更简洁的语法。在使用的时候，我们可以直接调用`jQuery.someMethod`或者使用它的别名`$`。一个简单的查找DOM的操作为：
+[jQuery](https://jquery.com/)封装了常用的JavsScript操作，并提供更简洁的语法。在使用的时候，我们可以直接调用`jQuery.someMethod`或者使用它的别名`$`。一个简单的查找DOM的操作为：
 ```javascript
 let elem = $('#test-form'); // 查找id为test-form的DOM节点
 ```
