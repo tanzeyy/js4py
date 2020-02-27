@@ -31,7 +31,7 @@ alert("Hello World!");
 - [基础](./doc/ch1_basics.md)
 - [函数](./doc/ch2_functions.md)
 - [类](./doc/ch3_classes.md)
-- Web编程
+- [Web编程](./doc/ch4_web_programming.md)
 
 ## 参考
 
