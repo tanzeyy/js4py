@@ -99,7 +99,7 @@ $.ajax({
 ```
 
 
-以上只是一些简单的示例，jQuery拥有非常强大的功能，更多的细节建议查阅：https://learn.jquery.com/。
+以上只是一些简单的示例，jQuery拥有非常强大的功能，更多的细节建议查阅：https://learn.jquery.com/
 
 ## Underscore
 [Underscore](https://underscorejs.org/)是另外一个流行的第三方开源库，它提供了一套完整的函数式编程接口，可以作用于集合类对象之上。集合类指Array和Object，一些简单的例子是：
@@ -123,7 +123,7 @@ _.every([2, 4, 5], function(num) { return num % 2 == 0; }); // false
 
 _.groupBy([1.3, 2.1, 2.4], function(num){ return Math.floor(num); }); // {1: [1.3], 2: [2.1, 2.4]}
 ```
-更多的使用方法请查阅：https://underscorejs.org/。
+更多的使用方法请查阅：https://underscorejs.org/
 
 ## Node.js
 [Node.js](https://nodejs.org/)是一个基于Chrome V8引擎的JavaScript运行时。如果你熟悉各类Python的解释器，那么理解它也会非常容易。它能提供服务端的JavaScript支持，非常强大，一个简单的例子如下：
@@ -150,4 +150,4 @@ server.listen(port, hostname, () => {
 同时，Node.js的设计使它能更方便地设计为提供服务端的功能。
 > HTTP 是 Node.js 中的一等公民。它设计的是流式和低延迟。这使得 Node.js 非常适合于 web 库或框架的基础。仅仅因为 Node.js 是在没有线程的情况下设计的，这并不意味着您无法利用环境中的多个内核。子进程可以通过使用我们的 child_process.fork() API 来生成，并且被设计为易于沟通。建立在同一接口上的是 cluster 模块，它允许您在进程之间共享套接字，以便在核心上启用负载平衡。
 
-了解更多相关的功能，请查阅：https://nodejs.org/。
+了解更多相关的功能，请查阅：https://nodejs.org/
